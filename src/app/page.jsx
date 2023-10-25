@@ -8,7 +8,7 @@ export default function Home() {
     <div className={styles.container}>
       <div className={styles.item}>
         <h1 className={styles.title}>
-           Elevate Your Path with Us 
+           college connect 
         </h1>
         <p className={styles.desc}>
         Guiding your journey to success through curated notes, 

@@ -59,7 +59,7 @@ input[type], select {
   
   form {
     border-radius: 5px;
-    background-color: lavender;
+    background-color: transparent;
     padding: 20px;
     gap:5px;
     /* filter: blur(8px); */

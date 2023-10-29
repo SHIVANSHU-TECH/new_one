@@ -44,7 +44,7 @@ export default function page() {
       console.log("error while adding Events",data);
      } 
     } catch (err) {
-      setError(err);
+      // setError(err);
       console.log(err);
     }
   }
@@ -74,6 +74,16 @@ export default function page() {
             desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis tenetur nobis, libero eveniet veniam vero aperiam error quia odio rem?"
           />
           <Card
+            title="The Standup comedy show"
+            date="08 Aug 2023"
+            desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis tenetur nobis, libero eveniet veniam vero aperiam error quia odio rem?"
+          />
+           <Card
+            title="The Standup comedy show"
+            date="08 Aug 2023"
+            desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis tenetur nobis, libero eveniet veniam vero aperiam error quia odio rem?"
+          />
+           <Card
             title="The Standup comedy show"
             date="08 Aug 2023"
             desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis tenetur nobis, libero eveniet veniam vero aperiam error quia odio rem?"

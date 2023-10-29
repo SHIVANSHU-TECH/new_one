@@ -17,7 +17,7 @@
   background: white;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Orbitron', sans-serif;
   font-variant-caps:petite-caps;
   overflow: hidden;
   white-space: nowrap;
@@ -55,7 +55,7 @@
 .desc {
   font-size: 26px;
   font-weight: 300;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Old Standard TT', serif;;
 }
 
 .headingContainer {
@@ -78,6 +78,24 @@
     width: 114px;
     background-color: var(--primary-1);
     height: 3px;
+}
+.op{
+  /* margin-top: 2vw; */
+  background-color: white;
+  /* position: relative; */
+  /* left: 40px; */
+  border: none;
+  width: 40%;
+  height: 65%;
+  font-size: 150%;
+  font-family: "poppins" ,serif;
+  color: black;
+  border-radius: 3.5vw;
+  font-weight: bold;
+  cursor: pointer;
+  background-image: url("./iconmonstr-arrow-right-thin.svg");
+  background-repeat: no-repeat;
+  background-position: right 24px center;
 }
 @media screen and (max-width: 580px) {
   .title{

@@ -26,13 +26,13 @@
 }
 
 .item:nth-child(1) {
-  background: url("/database.jpg");
+  background: url("/cse.jpg");
 }
 .item:nth-child(2) {
-  background: url("/data.jpg");
+  background: url("/back.jpg");
 }
 .item:nth-child(3) {
-  background: url("/oops.jpg");
+  background: url("/ok.jpg");
 }
 
 .title {

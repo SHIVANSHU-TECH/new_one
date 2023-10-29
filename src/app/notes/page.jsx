@@ -5,7 +5,7 @@ import Link from "next/link";
 const Notes = () => {
   return (
     <div className={styles.container}>
-      <h1 className={styles.selectTitle}>Choose any notes</h1>
+      <h1 className={styles.selectTitle}>Our Works</h1>
       <div className={styles.items}>
         <Link href="https://drive.google.com/drive/folders/1nxOz5FWRr-dBSXbPJxKznkIJVAs8hNmG?usp=drive_link" className={styles.item} rel="noopener noreferrer" target="_blank">
           <span className={styles.title}> CSE</span>

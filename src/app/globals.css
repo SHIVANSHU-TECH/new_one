@@ -14,6 +14,7 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+  
 }
 
 .theme{
@@ -21,8 +22,9 @@ a {
 }
 
 .dark {
-  background-image: linear-gradient(135deg, #000000, #3533cd);
-  color: #fff;
+   background-image: linear-gradient(to right top, #282e42, #252c45, #232b48, #21294a, #1f274d, #1e254a, #1c2348, #1b2145, #1a1e3d, #181a35, #16172d, #141426);
+  /* background-image: linear-gradient(to right top, #28304d, #1e3470, #093793, #0038b5, #0034d6, #0030d1, #002dcc, #0029c7, #02279d, #0f2274, #151b4c, #141426); */
+  color:#fff;
 }
 
 .light {
@@ -106,9 +108,11 @@ a {
   border-radius: 15px;
   flex-direction: column;
   box-shadow: 0px 0px 11px 3px rgba(0, 0, 0, 0.25);
+  background-color: #2f1356;
+}
 
   .cardImg {
-      background-color: yellow;
+      background-color: white;
       width: 300px;
       margin: 0 auto;
       height: 200px;
@@ -118,6 +122,8 @@ a {
   .cardTitle h4 {
       font-weight: bold;
       margin-top: 29px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
   }
 
   .cardTitle span {
@@ -132,15 +138,18 @@ a {
       border-radius: 5px;
       outline: none;
       border: none;
-      background: var(--danger);
-      color: white;
+      background: var(white);
+      color: black;
+      background-image: url("./square-arrow-up-right-solid.svg");
+      background-repeat: no-repeat;
+      background-position: right 2px center;
       font-weight: bold;
       cursor: pointer;
       transition: background-color .3s ease-in-out;
   }
-}
+
 .btn-join button:hover {
-  background-color: var(--danger-1);
+  background-color: var(wheat);
 
 }
 

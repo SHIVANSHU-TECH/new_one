@@ -1,4 +1,5 @@
 .container{
+  /* margin-top: 20px; */
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -7,9 +8,20 @@
   padding: 50px 0px;
   border: 1px solid white;
   width: 45%;
-  margin: auto;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin: auto; */
   border-radius: 20px;
   background-color: #1C1C48;
+}
+.titlee{
+  font-size: 45px;
+  font-family: 'Times New Roman', Times, serif;
+}
+.subtitle{
+  font-size: 25px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .form{
@@ -68,5 +80,13 @@
 @media screen and (max-width: 1080px) {
   .container{
     width: 55%;
+  }
+  .titlee{
+    font-size: 4vw;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  .subtitle{
+    font-size: 2.2vw;
+    font-family: Georgia, 'Times New Roman', Times, serif;
   }
 }

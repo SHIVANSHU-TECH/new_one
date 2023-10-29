@@ -1,4 +1,4 @@
-.container {
+.containr {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -6,7 +6,10 @@
   padding: 50px 0px;
   border: 1px solid white;
   width: 45%;
-  margin: auto;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin: auto; */
   border-radius: 20px;
   background-color: #1C1C48;
 }
@@ -81,11 +84,12 @@
 
 
 @media screen and (min-width:151px) and (max-width: 705px) {
- .container{
+ .containr{
     top: 20%;
-    position: absolute;
+    /* position: absolute; */
     left: 1px;
     right: 1px;
+    margin: auto;
  }
  .form{
    width: 70%;
@@ -95,7 +99,8 @@
  }
 }
 @media screen and (max-width: 1080px) {
-  .container{
+  .containr{
     width: 55%;
+    margin: auto;
   }
 }

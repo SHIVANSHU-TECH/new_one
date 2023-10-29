@@ -65,7 +65,7 @@ const Login = ({ url }) => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.containr}>
       <h1 className={styles.title}>{success ? success : "Welcome Back"}</h1>
       <h2 className={styles.subtitle}>Please sign in to see the dashboard.</h2>
 

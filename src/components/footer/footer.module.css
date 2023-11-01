@@ -15,4 +15,7 @@
 .icon {
   opacity: 0.6;
   cursor: pointer;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
 }

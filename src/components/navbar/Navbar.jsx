@@ -7,6 +7,7 @@ import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import menu from "public/menu.png";
 import { AiOutlineMenu } from 'react-icons/ai';
+import NextTopLoader from "nextjs-toploader";
 import { useRouter } from "next/navigation";
 
 //  import { themeContext } from "../../context/ThemeContext";
@@ -80,6 +81,7 @@ const Navbar = () => {
 
   return (
     <div className={styles.container}  >
+      <NextTopLoader  color="#fff"  size="10px" />
       <Link href="/" className={styles.logo}>
         IPSC
       </Link>

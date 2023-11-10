@@ -15,7 +15,7 @@ export default function Home() {
         exciting internships,and valuable events. 
         Elevate your path with us.
         </p>
-        <button className={styles.op} url="/internships" text="services and opportunties">join us</button>
+        <button className={styles.op} url="/internships" text="services and opportunties">Join us</button>
       </div>
       <div className={styles.item}>
         <Image src={Hero} alt="" className={styles.img} />

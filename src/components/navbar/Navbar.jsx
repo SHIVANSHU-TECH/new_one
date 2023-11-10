@@ -10,6 +10,7 @@ import { AiOutlineMenu } from 'react-icons/ai';
 import NextTopLoader from "nextjs-toploader";
 import { useRouter } from "next/navigation";
 
+
 //  import { themeContext } from "../../context/ThemeContext";
 const links = [
   {
@@ -19,7 +20,7 @@ const links = [
   },
   {
     id: 2,
-    title: "notes",
+    title: "Notes",
     url: "/notes",
   },
   {
@@ -34,12 +35,12 @@ const links = [
   },
   {
     id: 5,
-    title: "auth",
+    title: "Auth",
     url: "/register",
   },
   {
     id: 6,
-    title: "opportunities",
+    title: "Opportunities",
     url: "/internships",
   },
 ];

@@ -53,9 +53,11 @@
 
 
 .desc {
-  font-size: 26px;
-  font-weight: 300;
-  font-family: 'Old Standard TT', serif;;
+  font-size: 22px;
+  font-weight: 500;
+  /* font-family: 'Old Standard TT', serif;
+   */
+  font-family: 'Montserrat', sans-serif;
 }
 
 .headingContainer {
@@ -82,21 +84,27 @@
 .op{
   /* margin-top: 2vw; */
   background-color: white;
-  /* position: relative; */
+  position: relative;
   /* left: 40px; */
   border: none;
-  width: 40%;
-  height: 65%;
-  font-size: 150%;
+  /* width: 40%;
+  height: 65%; */
+  width: 220px;
+  padding: .4rem 0;
+  font-size: 18px;
   font-family: "poppins" ,serif;
   color: black;
-  border-radius: 3.5vw;
-  font-weight: bold;
+  border-radius: 35px;
+  font-weight: 400;
   cursor: pointer;
   background-image: url("./iconmonstr-arrow-right-thin.svg");
   background-repeat: no-repeat;
   background-position: right 24px center;
+  transition: .3s ease-in;
 }
+
+
+
 @media screen and (max-width: 580px) {
   .title{
     margin-top: 110px;

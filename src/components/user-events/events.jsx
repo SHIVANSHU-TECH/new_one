@@ -5,10 +5,10 @@ import css from "@/components/DashboardEvents/dashboardEvents.css";
 
 
 const events = () => {
-  const eventData = [
-    { name: 'Code Fit', date: '25-09-2023', description: 'Main campus' },
-    { name: 'Hackathon', date: '20-09-2023', description: 'Main Campus' },
-  ];
+  // const eventData = [
+  //   { name: 'Code Fit', date: '25-09-2023', description: 'Main campus' },
+  //   { name: 'Hackathon', date: '20-09-2023', description: 'Main Campus' },
+  // ];
   const ApprovedEvent = [
     { name: 'Code Quiz', date: '12-10-2023', description: 'Main campus', status: 'Approved' },
     { name: 'Poster Making', date: '15-10-2023', description: 'Online' , status: 'Approved'},
@@ -21,7 +21,7 @@ const events = () => {
   ];
   return (
     <div className='events_main'>
-      {eventData.map((event, index) => (
+      {/* {eventData.map((event, index) => (
         <div className='eventContainer' key={index}>
           <div className='details'>
             <div className='evntName'>
@@ -47,7 +47,7 @@ const events = () => {
             </div>
           </div>
         </div>
-      ))}
+      ))} */}
       <h2>Recent Events</h2>
       {ApprovedEvent.map((approved, index) => (
       <div className='eventContainer' key={index}>

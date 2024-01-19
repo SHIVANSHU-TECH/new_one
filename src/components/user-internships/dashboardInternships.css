@@ -1,0 +1,103 @@
+.I_main{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-y: scroll;
+  height: 80vh;
+}
+
+.I_main::-webkit-scrollbar {
+  width: 0;
+}
+
+.IContainer {
+  padding: 1.25rem 1.25rem;
+  border: 1px solid grey;
+  border-radius: 10px;
+  display: flex;
+  /* background-color:white; */
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  margin: 0.5rem 1rem;
+}
+
+h2{
+  margin: 0.5rem 1rem;
+}
+
+.details {
+  width: max-content;
+  display: flex;
+  gap: 45px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.actionBtns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.actionBtns .accept button{
+  padding: 10px ;
+  border-radius: 50%;
+  color:white;
+  font-weight: bold;
+  background-Color:rgb(15, 169, 88);
+  border: none;
+  cursor: pointer;
+  height: 33px;
+}
+.actionBtns .reject button {
+  padding: 10px ;
+  border-radius: 50%;
+  color:white;
+  border: none;
+  font-weight: bold;
+  height: 33px;
+  cursor: pointer;
+  background-Color:red;
+}
+
+.status{
+  font-weight: bold;
+  font-size: 18px;
+}
+
+@media (max-width: 480px) {
+  .I_main {
+    width: 100%; 
+  }
+  
+  .details {
+    flex-direction: column;
+    align-items: flex-start; 
+  }
+  
+  .actionBtns {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 850px) and (min-width: 481px) {
+  .I_main {
+    width: 100%;
+  }
+  
+  .details {
+    font-size: 14px;
+  } 
+}
+
+@media (max-width: 1024px) and (min-width: 850px) {
+  .I_main {
+    width: 70%;
+  }
+  
+  .details {
+    font-size: 14px;
+  } 
+}

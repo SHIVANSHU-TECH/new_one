@@ -4,10 +4,10 @@ import { ImCross } from "react-icons/im";
 import css from "@/components/DashboardInternships/dashboardInternships.css";
 
 const Internships = () => {
-  const internshipData = [
-    { name: 'Amazone', role: 'Analyst', venue: 'Main campus' },
-    { name: 'Accenture', role: 'Developer', venue: 'Main Campus' },
-  ];
+  // const internshipData = [
+  //   { name: 'Amazone', role: 'Analyst', venue: 'Main campus' },
+  //   { name: 'Accenture', role: 'Developer', venue: 'Main Campus' },
+  // ];
   const AData = [
     { name: 'Accenture', role: 'SDE', venue: 'Main campus', status: 'Approved' },
     { name: 'Amazone', role: 'Analyst', venue: 'Online' , status: 'Approved'},
@@ -15,7 +15,7 @@ const Internships = () => {
   ];
   return (
     <div className='I_main'>
-      {internshipData.map((internship, index) => (
+      {/* {internshipData.map((internship, index) => (
         <div className='IContainer' key={index}>
           <div className='details'>
             <div className='IName'>
@@ -41,7 +41,7 @@ const Internships = () => {
             </div>
           </div>
         </div>
-      ))}
+      ))} */}
       <h2>Recent Internships</h2>
       {AData.map((Internships, index) => (
       <div className='IContainer' key={index}>

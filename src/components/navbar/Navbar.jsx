@@ -43,6 +43,11 @@ const links = [
     title: "Opportunities",
     url: "/internships",
   },
+  {
+    id:7,
+    title:"Dashboard",
+    url:"/user-dashboard"
+  }
 ];
 
 const Navbar = () => {

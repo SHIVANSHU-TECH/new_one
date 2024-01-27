@@ -1,0 +1,146 @@
+.containerCardNote  {
+    /* height: 100vh; */
+    width: 100vw;
+    /* min-height: 600px;
+    min-width: 800px;
+    max-height: 800px;
+    max-width: 1200px; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.border {
+    height: 379px;
+    width: 300px;
+    background: transparent;
+    border-radius: 10px;
+    transition: border .8s;
+    position: relative;
+}
+
+.border:hover {
+    border: 1px solid #fff;
+}
+
+h2 {
+    margin: 2.5rem 2rem 0 0;
+    opacity: 0;
+    color: #9d4edd;
+    text-align: right;
+    transition: .3s ease-in;
+}
+
+.cardNotesLink {
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    font-size: 19px;
+    font-weight: 600;
+    color: #000;
+    margin: 0.5rem 2rem 0 0;
+    opacity: 0;
+    position: relative;
+    transition: .3s ease-in-out;
+}
+
+
+.cardNotesLink:after {
+    position: absolute;
+    content: '';
+    width: 0px;
+    height: 4px;
+    background: #00b8ff;
+    bottom: -5px;
+    transition: .3s;
+}
+
+.cardNotesLink:hover:after {
+    width: 40%;
+}
+
+
+.cardNote {
+    /* height: 379px;
+    /* width: 300px; for small dimensions */
+    background: #808080;
+    border-radius: 10px;
+    transition: background 1s;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 70px 63px -60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.cardNote0 {
+    background: url('../../../public/cse.svg') center center no-repeat;
+    background-size: 300px;
+}
+
+.cardNote0:hover {
+    background: url('../../../public/cse.svg') left center no-repeat;
+    background-size: 600px;
+}
+
+.cardNote0:hover h2, .cardNote0:hover .cardNotesLink {
+    opacity: 1;
+}
+
+
+.cardNote1 {
+    background: url('../../../public/electronics.svg') center center no-repeat;
+    background-size: 300px;
+}
+
+.cardNote1:hover {
+    background: url('../../../public/electronics.svg') center right no-repeat;
+    background-size: 600px;
+}
+
+.cardNote1:hover h2, .cardNote1:hover .cardNotesLink {
+    opacity: 1;
+}
+
+.cardNote1 .cardNotesLink {
+    color: #fff;
+}
+
+.cardNote2 {
+    background: url('../../../public/it-3.svg') center center no-repeat;
+    background-size: 300px;
+}
+
+.cardNote2:hover {
+    background: url('../../../public/it-3.svg') top bottom no-repeat;
+    background-size: 600px;
+}
+
+
+.cardNote2:hover h2, .cardNote2:hover .cardNotesLink {
+    opacity: 1;
+}
+@media screen and (max-width: 580px) {
+    .containerCardNote {
+        flex-direction: column;
+        row-gap: 30px;
+        margin-top: 110px;
+        width: 100%;
+        /* position: absolute;
+        top: 20%;
+        left: -20%; */
+        
+    }
+    .cardNote0 {
+        margin: 1.5rem 0;
+    }
+
+    .cardNote2{
+        margin:1.5rem 0 ;
+    }
+   
+    
+  }

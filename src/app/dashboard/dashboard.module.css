@@ -1,0 +1,70 @@
+.dashboardContainer {
+    display: flex;
+    grid-template-columns: 25% 75%;
+    height: auto;
+    gap: 2rem;
+    margin-left: 10%;
+    margin-top:2%;
+}
+
+.recents {
+    display: flex;
+    gap: 2rem;
+}
+
+.recentTables {
+    margin-top: 5rem;
+    background-color: white;
+    color:black;
+    border-radius: 30px;
+    width: 100%;
+    padding: 2rem;
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+    .dashboardContainer {
+        gap: 2rem;
+        margin: 0;
+        margin:0;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboardContainer {
+        display: block;
+        margin-left: 0;
+    }
+    
+    .recents {
+        margin-top: 5%;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .recentTables {
+        width: 90%;
+        margin: 1rem auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboardContainer {
+        gap: 2rem;
+        padding: 1rem;
+    }
+
+    .recents {
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .recentTables {
+        width: 100%;
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+}

@@ -1,0 +1,66 @@
+
+.recent-container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 18px;
+    border-radius: 30px;
+}
+
+.recent-heading {
+    display: flex;
+    gap: 1.5rem;
+    color:black
+}
+
+.desc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.overlay {
+    
+    margin-top: 25px;
+    font-size: 136px;
+    color: indigo;
+    opacity: .3;
+}
+
+
+
+.data {
+    position: absolute;
+    font-size: 140px;
+    color: black;
+    left: 5px;
+    top: 15px;
+    transition: ease-in-out .3s;
+    cursor: pointer;
+}
+
+.data:hover {
+    left: 2px;
+    top: 12px;
+}
+table{
+    width: auto;
+}
+.th{
+    height:70px;
+    font-weight: 700;
+}
+th, td {
+  font-family: 'montserrat';
+  text-align: center;
+  width: auto;
+  line-height: 2;
+}
+
+.data-entry{
+    height: 50;
+}

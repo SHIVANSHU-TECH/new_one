@@ -3,7 +3,7 @@ import React,  { useState } from 'react';
 import "../form/iform.css";
 
 
-export default function eform() {
+export default function Iform() {
   const [post, setPost] = useState('');
   const [cname, setCname] = useState('');
   const [vdate, setVdate] = useState('');
@@ -51,7 +51,7 @@ export default function eform() {
   };
   return (
     <div>
-    <form className='iForm' onSubmit={handleSubmit}>
+    <form className='Iform' onSubmit={handleSubmit}>
     <label for="post">Post Name</label>
     <input type="text" 
     id="pname" 

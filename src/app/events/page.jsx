@@ -10,7 +10,7 @@ import Card from "@/components/Card/CardEvent";
 import "../events/events.css";
 import { useEffect, useState } from "react";
 
-export default function page() {
+export default function Page() {
 
   const [AllEvents, setAllEvents] = useState([])
   

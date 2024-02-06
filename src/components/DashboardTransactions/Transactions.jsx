@@ -1,7 +1,7 @@
 import React from "react";
 import "./dashboardTransaction.css";
 const Transactions = () => {
-  const data = [
+const data = [
     {
       title: "Placement Talks with Seniors",
       action: "Accepted",

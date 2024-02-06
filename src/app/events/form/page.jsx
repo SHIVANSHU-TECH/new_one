@@ -2,7 +2,7 @@
 import React,  { useState } from 'react';
 import "../form/efom.css";
 
-export default function eform() {
+export default function Eform() {
     const [event, setEvent] = useState('');
     const [date, setDate] = useState('');
     const [desc, setDesc] = useState('');
@@ -55,7 +55,7 @@ export default function eform() {
   return (
     <div>
       {/* <div className="containerForm"> */}
-    <form className='eForm' onSubmit={handleSubmit}>
+    <form className='EForm' onSubmit={handleSubmit}>
     <label for="event">Event Name</label>
     <input type="text"
      id="ename" 

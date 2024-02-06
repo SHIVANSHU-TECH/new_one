@@ -2,7 +2,7 @@
 import Internship from "@/sections/Internship";
 import React, { useEffect, useState } from "react";
 import css from "./internship.css";
-function page() {
+function Page() {
 
 
  
@@ -15,4 +15,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

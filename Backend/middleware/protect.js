@@ -9,11 +9,11 @@ const protect = async (req, res, next) => {
       return res.status(400).json({ error: "Authorization token not found" });
     }
     const token = req.headers.authorization.split(" ")[1];
-    // console.log(token);/
+    // console.log(token);
     const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
     // console.log(decodedToken);
     const user = await User.findById(decodedToken.id);
-    // console.log(user);
+    //console.log(user);
     if (!user) {
       return res.status(401).json({ message: "User not found" });
     }

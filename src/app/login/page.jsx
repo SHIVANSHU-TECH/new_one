@@ -7,6 +7,7 @@ import Link from "next/link";
 
 const Login = ({ url }) => {
   const session = useSession();
+  
   const router = useRouter();
   const params = useSearchParams();
   const [error, setError] = useState("");

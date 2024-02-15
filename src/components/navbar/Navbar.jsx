@@ -47,6 +47,11 @@ const links = [
     id:7,
     title:"Dashboard",
     url:"/user-dashboard"
+  },
+  {
+    id:8,
+    title:"Admin-Dashboard",
+    url:"/dashboard"
   }
 ];
 

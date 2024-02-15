@@ -6,7 +6,7 @@ const createPost = async (req, res) => {
   try {
     const user = await User.findById(req.user._id);
     if (!user) {
-      res.status(500).json({ message: "Unauthorized" });
+      return res.status(500).json({ message: "Unauthorized" });
     }
     const { message, image } = req.body;
     const post = new Post({
@@ -24,12 +24,12 @@ const createPost = async (req, res) => {
       .populate("likes", "_id name email image")
       .populate("comments.user", "_id name email image");
 
-    res
+    return res
       .status(201)
       .json({ post: populatedPost, message: "Post created successfully" });
   } catch (error) {
     console.error("Error creating post:", error);
-    res
+    return res
       .status(500)
       .json({ message: "Internal server error", error: error.message });
   }
@@ -41,9 +41,9 @@ const getPosts = async (req, res) => {
       .populate("createdBy", "_id name email image")
       .populate("likes", "_id name email image")
       .populate("comments.user", "_id name email image");
-    res.status(200).json(posts);
+    return res.status(200).json(posts);
   } catch (error) {
-    res.status(500).json({ message: "Internal server error", error });
+    return res.status(500).json({ message: "Internal server error", error });
   }
 };
 
@@ -55,9 +55,9 @@ const getAllPosts = async (req, res) => {
       .populate("createdBy", "_id name email image")
       .populate("likes", "_id name email image")
       .populate("comments.user", "_id name email image");
-    res.status(200).json(posts);
+    return res.status(200).json(posts);
   } catch (error) {
-    res.status(500).json({ message: "Internal server error", error });
+    return res.status(500).json({ message: "Internal server error", error });
   }
 };
 const deletePost = async (req, res) => {
@@ -78,9 +78,9 @@ const deletePost = async (req, res) => {
     user.posts.pull(req.params.id);
     await user.save();
 
-    res.status(200).json({ message: "Post deleted successfully" });
+    return res.status(200).json({ message: "Post deleted successfully" });
   } catch (error) {
-    res
+    return res
       .status(500)
       .json({ message: "Internal server error", error: error.message });
   }
@@ -99,9 +99,9 @@ const updatePost = async (req, res) => {
     if (!post) {
       return res.status(404).json({ message: "Post not found" });
     }
-    res.status(200).json(post);
+    return res.status(200).json(post);
   } catch (error) {
-    res.status(500).json({ message: "Internal server error", error });
+    return res.status(500).json({ message: "Internal server error", error });
   }
 };
 
@@ -186,7 +186,7 @@ const DeleteComment = async (req, res) => {
 
     post.comments.push({ user: req.user._id }, { comment: message });
     post.save();
-    req.res.status(200).json({ message: "comment added successFully" });
+    return res.status(200).json({ message: "comment added successFully" });
   } catch (error) {
     return res.status(400).json({ error: error.message });
   }

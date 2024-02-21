@@ -22,8 +22,9 @@ export default function eform() {
         headers: {
          
           "Content-Type": "application/json",
+          "authorization": `Bearer ${localStorage.getItem("token")}`,
         },
-        body:{
+        body:JSON.stringify({
           title : `${post}`,
           description:`${jd}`,
           
@@ -31,18 +32,11 @@ export default function eform() {
           link:`${jl}`,
           DeadlineDate:`${vdate}`
          
-        }
+        })
 
       });
       const data = await res.json();
-     if( data){
-     
-      console.log(data)
-     }
-     else{
-
-      console.log("error while adding jobs",data);
-     } 
+      alert(data.message);
     } catch (err) {
     
       console.log(err);

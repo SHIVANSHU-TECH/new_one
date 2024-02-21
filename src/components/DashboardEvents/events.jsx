@@ -1,34 +1,121 @@
-import React from 'react'
+"use client";
+import React, { useEffect, useState } from 'react'
 import { FaCheck } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import css from "@/components/DashboardEvents/dashboardEvents.css";
 
 
 const events = () => {
-  const eventData = [
-    { name: 'Code Fit', date: '25-09-2023', description: 'Main campus' },
-    { name: 'Hackathon', date: '20-09-2023', description: 'Main Campus' },
-  ];
-  const ApprovedEvent = [
-    { name: 'Code Quiz', date: '12-10-2023', description: 'Main campus', status: 'Approved' },
-    { name: 'Poster Making', date: '15-10-2023', description: 'Online' , status: 'Approved'},
-    { name: 'Poster Making', date: '15-10-2023', description: 'Online' , status: 'Approved'},
-    { name: 'Poster Making', date: '15-10-2023', description: 'Online' , status: 'Approved'},
-    { name: 'Poster Making', date: '15-10-2023', description: 'Online' , status: 'Approved'},
-    { name: 'Poster Making', date: '15-10-2023', description: 'Online' , status: 'Approved'},
-    { name: 'Poster Making', date: '15-10-2023', description: 'Online' , status: 'Approved'},
-    { name: 'Poster Making', date: '15-10-2023', description: 'Online' , status: 'Approved'},
-  ];
+
+  const [ver, setVer] = useState([])
+  const [rej, setRej] = useState([])
+
+
+
+  const getInverification = async()=>{
+
+    try{
+      
+    const response = await fetch("http://localhost:5000/api/v1/event/inVer", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "authorization": `Bearer ${localStorage.getItem("token")}`,
+      }
+    });
+
+      const data = await response.json();
+     
+      alert(data.message);
+      if(data.success == true){
+        setVer(data.allEvents);
+      }
+
+    } catch (err) {
+      console.log(err);
+    }
+
+
+  }
+  const getRejected = async()=>{
+
+    try{
+      
+    const response = await fetch("http://localhost:5000/api/v1/event/rej", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "authorization": `Bearer ${localStorage.getItem("token")}`,
+      }
+    });
+
+      const data = await response.json();
+     
+      alert(data.message);
+      if(data.success == true){
+        setRej(data.allEvents);
+      }
+
+    } catch (err) {
+      console.log(err);
+    }
+
+
+  }
+
+
+  const handleUpdate =  async(id,status)=>{
+
+    try{
+      
+      const response = await fetch(`http://localhost:5000/api/v1/event/update/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "authorization": `Bearer ${localStorage.getItem("token")}`,
+        },
+        body:JSON.stringify({
+          "status":status
+        })
+      });
+  
+        const data = await response.json();
+       
+        alert(data.message);
+        if(data.success==true){
+          getInverification();
+          getRejected();
+        }
+  
+      } catch (err) {
+        console.log(err);
+      }
+
+  }
+
+  useEffect(() => {
+    getInverification();
+    getRejected();
+
+  }, [])
+  
+
+
+  
+ 
+  
+
+
   return (
     <div className='events_main'>
-      {eventData.map((event, index) => (
-        <div className='eventContainer' key={index}>
+      {ver && ver.map((event) => (
+        <div className='eventContainer' key={event._id}>
           <div className='details'>
             <div className='evntName'>
-              <p>{event.name}</p>
+              <p>{event.title}</p>
             </div>
             <div className='evntDate'>
-              <p>{event.date}</p>
+              <p>{event.DeadlineDate}</p>
             </div>
             <div className='evntDesc'>
               <span>{event.description}</span>
@@ -36,27 +123,27 @@ const events = () => {
           </div>
           <div className='actionBtns'>
             <div className='accept'>
-              <button>
+              <button onClick={ ()=> handleUpdate(event._id,"approved")}>
                 <FaCheck />
               </button>
             </div>
             <div className='reject'>
               <button>
-                <ImCross />
+                <ImCross   onClick={()=> handleUpdate(event._id,"rejected")}/>
               </button>
             </div>
           </div>
         </div>
       ))}
-      <h2>Recent Events</h2>
-      {ApprovedEvent.map((approved, index) => (
-      <div className='eventContainer' key={index}>
+      <h2>Rejected Events</h2>
+      {rej && rej.map((approved) => (
+      <div className='eventContainer' key={approved._id}>
         <div className='details'>
           <div className='evntName'>
-            <p>{approved.name}</p>
+            <p>{approved.title}</p>
           </div>
           <div className='evntDate'>
-            <p>{approved.date}</p>
+            <p>{approved.DeadlineDate}</p>
           </div>
           <div className='evntDesc'>
             <span>{approved.description}</span>

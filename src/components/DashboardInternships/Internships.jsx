@@ -1,41 +1,129 @@
-import React from 'react'
+"use client";
+import React, { useEffect, useState } from 'react'
 import { FaCheck } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import css from "@/components/DashboardInternships/dashboardInternships.css";
 
 const Internships = () => {
-  const internshipData = [
-    { name: 'Amazone', role: 'Analyst', venue: 'Main campus' },
-    { name: 'Accenture', role: 'Developer', venue: 'Main Campus' },
-  ];
-  const AData = [
-    { name: 'Accenture', role: 'SDE', venue: 'Main campus', status: 'Approved' },
-    { name: 'Amazone', role: 'Analyst', venue: 'Online' , status: 'Approved'},
-    { name: 'Amazone', role: 'Analyst', venue: 'Online' , status: 'Approved'},
-  ];
+
+  const [ver, setVer] = useState([])
+  const [rej, setRej] = useState([])
+
+
+
+  const getInverification = async()=>{
+
+    try{
+      
+    const response = await fetch("http://localhost:5000/api/v1/opp/inVer", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "authorization": `Bearer ${localStorage.getItem("token")}`,
+      }
+    });
+
+      const data = await response.json();
+     
+      alert(data.message);
+      if(data.success == true){
+        setVer(data.allJobs);
+      }
+
+    } catch (err) {
+      console.log(err);
+    }
+
+
+  }
+  const getRejected = async()=>{
+
+    try{
+      
+    const response = await fetch("http://localhost:5000/api/v1/opp/rej", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "authorization": `Bearer ${localStorage.getItem("token")}`,
+      }
+    });
+
+      const data = await response.json();
+     
+      alert(data.message);
+      if(data.success == true){
+        setRej(data.allJobs);
+      }
+
+    } catch (err) {
+      console.log(err);
+    }
+
+
+  }
+
+
+  const handleUpdate =  async(id,status)=>{
+
+    try{
+      
+      const response = await fetch(`http://localhost:5000/api/v1/opp/update/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "authorization": `Bearer ${localStorage.getItem("token")}`,
+        },
+        body:JSON.stringify({
+          "status":status
+        })
+      });
+  
+        const data = await response.json();
+       
+        alert(data.message);
+        if(data.success==true){
+          getInverification();
+          getRejected();
+        }
+  
+      } catch (err) {
+        console.log(err);
+      }
+
+  }
+
+  useEffect(() => {
+    getInverification();
+    getRejected();
+
+  }, [])
+  
+
+
+
   return (
     <div className='I_main'>
-      {internshipData.map((internship, index) => (
-        <div className='IContainer' key={index}>
+      {ver && ver.map((internship) => (
+        <div className='IContainer' key={internship._id}>
           <div className='details'>
             <div className='IName'>
-              <p>{internship.name}</p>
+              <p>{internship.title}</p>
             </div>
             <div className='IDate'>
-              <p>{internship.role}</p>
+              <p>{internship.companyName}</p>
             </div>
             <div className='IDesc'>
-              <span>{internship.venue}</span>
+              <span>{internship.description}</span>
             </div>
           </div>
           <div className='actionBtns'>
             <div className='accept'>
-              <button>
+              <button onClick={ ()=> handleUpdate(internship._id,"approved")}>
                 <FaCheck />
               </button>
             </div>
             <div className='reject'>
-              <button>
+              <button onClick={ ()=> handleUpdate(internship._id,"rejected")}>
                 <ImCross />
               </button>
             </div>
@@ -43,17 +131,17 @@ const Internships = () => {
         </div>
       ))}
       <h2>Recent Internships</h2>
-      {AData.map((Internships, index) => (
-      <div className='IContainer' key={index}>
+      {rej && rej.map((Internships) => (
+      <div className='IContainer' key={Internships._id}>
         <div className='details'>
           <div className='IName'>
-            <p>{Internships.name}</p>
+            <p>{Internships.title}</p>
           </div>
           <div className='IDate'>
-            <p>{Internships.role}</p>
+            <p>{Internships.companyName}</p>
           </div>
           <div className='IDesc'>
-            <span>{Internships.venue}</span>
+            <span>{Internships.description}</span>
           </div>
         </div>
         <div className='status'>

@@ -1,11 +1,13 @@
 const express = require("express");
-const dotenv = require("dotenv");
-const app = express();
+const bodyParser = require("body-parser");
 const cors = require("cors");
 
-app.use(cors());
-app.use(express.json());
+const dotenv = require("dotenv");
+const app = express();
 
+app.use(cors());
+app.use(bodyParser.json());
+app.use(express.json());
 dotenv.config({ path: "./config.env" });
 
 require("./db/conn");

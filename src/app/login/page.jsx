@@ -13,6 +13,12 @@ const Login = ({ url }) => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
+  const handleLogin = async (provider) => {
+    await signIn(provider, {
+      callbackUrl: "/welcome",
+    });
+  };
+
   useEffect(() => {
     setError(params.get("error"));
     setSuccess(params.get("success"));
@@ -28,6 +34,7 @@ const Login = ({ url }) => {
   }
 
   if (session.status === "authenticated") {
+    console.log("User Profile:", session.user);
     router?.push("/");
   }
 
@@ -53,6 +60,7 @@ const Login = ({ url }) => {
       const data = await res.json();
      if(data.success==true){
       localStorage.setItem("token",data.token);
+      console.log("login success",data);
       router.push("/");
      }
      else{
@@ -88,24 +96,24 @@ const Login = ({ url }) => {
       </form>
       <button
         onClick={() => {
-          signIn("google");
+          handleLogin("google");
         }}
         className={styles.button + " " + styles.google}
       >
         Login with Google
       </button>
-      <span className={styles.or}>- OR -</span>
-      <Link className={styles.link} href="/register">
-        Create new account
-      </Link>
-      {/* <button
+      <button
         onClick={() => {
-          signIn("github");
+          handleLogin("github");
         }}
         className={styles.button + " " + styles.github}
       >
         Login with Github
-      </button> */}
+      </button>
+      <span className={styles.or}>- OR -</span>
+      <Link className={styles.link} href="/register">
+        Create new account
+      </Link>
     </div>
   );
 };

@@ -33,6 +33,7 @@ const links = [
     title: "About",
     url: "/about",
   },
+  
   {
     id: 5,
     title: "Auth",
@@ -48,11 +49,6 @@ const links = [
     title:"Dashboard",
     url:"/user-dashboard"
   },
-  {
-    id:8,
-    title:"Admin-Dashboard",
-    url:"/dashboard"
-  }
 ];
 
 const Navbar = () => {
@@ -74,19 +70,19 @@ const Navbar = () => {
     router.push("/")
    }
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-      if( token && token.length > 0){
-        setlogg(true);
-        router.push("/")
-      }
-      else{
-        setlogg(false);
-        router.push("/login")
-      }
-
-
-  }, [localStorage.getItem("token")])
+   useEffect(() => {
+    // Check if window is defined (i.e., we're in a browser environment)
+    if (typeof window !== 'undefined') {
+       const token = localStorage.getItem("token");
+       if (token && token.length > 0) {
+         setlogg(true);
+         router.push("/");
+       } else {
+         setlogg(false);
+         router.push("/login");
+       }
+    }
+   }, []);
   
 
 

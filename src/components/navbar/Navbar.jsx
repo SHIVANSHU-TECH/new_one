@@ -34,11 +34,11 @@ const links = [
     url: "/about",
   },
   
-  {
-    id: 5,
-    title: "Auth",
-    url: "/register",
-  },
+  // {
+  //   id: 5,
+  //   title: "Auth",
+  //   url: "/register",
+  // },
   {
     id: 6,
     title: "Opportunities",
@@ -67,8 +67,13 @@ const Navbar = () => {
    const handlesignOut =()=>{
     localStorage.removeItem("token");
     setlogg(false);
-    router.push("/")
+    router.push("/login")
    }
+
+   const handlelogout = async () => { 
+    await signOut();
+    router.push("/login");
+  }
 
    useEffect(() => {
     // Check if window is defined (i.e., we're in a browser environment)
@@ -76,7 +81,7 @@ const Navbar = () => {
        const token = localStorage.getItem("token");
        if (token && token.length > 0) {
          setlogg(true);
-         router.push("/");
+        //  router.push("/");
        } else {
          setlogg(false);
          router.push("/login");

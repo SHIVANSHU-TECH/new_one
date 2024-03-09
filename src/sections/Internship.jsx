@@ -91,7 +91,7 @@ function Internship() {
 
 
 
-      {/* </main> */} */
+      {/* </main> */}
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import Hero from "public/main.gif";
+import dotenv from "dotenv";
+dotenv.config({ path: "../env" });
 // import Button from "@/components/Button/Button";
 
 export default function Home() {

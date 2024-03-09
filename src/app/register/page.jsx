@@ -35,9 +35,7 @@ const Register = () => {
         router.push("/login")
       }
       else{
-      
-        
-      console.log("error whole register",data.message);
+      console.log("error while register",data.message);
      } 
     } catch (err) {
       setError(err);

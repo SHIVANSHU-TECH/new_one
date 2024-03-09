@@ -1,23 +1,23 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import styles from "./page.module.css";
-import { getProviders, signIn, useSession } from "next-auth/react";
+import { getProviders, signIn, useSession, signOut } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 
 const Login = ({ url }) => {
   const session = useSession();
-  
+  console.log(session);
   const router = useRouter();
   const params = useSearchParams();
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  const handleLogin = async (provider) => {
-    await signIn(provider, {
-      callbackUrl: "/welcome",
-    });
-  };
+  const handellogout = async () => { 
+    await signOut();
+    router.push("/login");
+  }
+
 
   useEffect(() => {
     setError(params.get("error"));
@@ -34,6 +34,7 @@ const Login = ({ url }) => {
   }
 
   if (session.status === "authenticated") {
+    console.log("User Profile:", session.data.user);
     console.log("User Profile:", session.user);
     router?.push("/");
   }
@@ -52,7 +53,6 @@ const Login = ({ url }) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          
           email,
           password,
         }),
@@ -80,7 +80,7 @@ const Login = ({ url }) => {
 
       <form onSubmit={handleSubmit} className={styles.form}>
         <input
-          type="text"
+          type="email"
           placeholder="Email"
           required
           className={styles.input}
@@ -94,7 +94,7 @@ const Login = ({ url }) => {
         <button className={styles.button}>Login</button>
         {error && error}
       </form>
-      <button
+      {/* <button
         onClick={() => {
           handleLogin("google");
         }}
@@ -109,11 +109,12 @@ const Login = ({ url }) => {
         className={styles.button + " " + styles.github}
       >
         Login with Github
-      </button>
+      </button> */}
       <span className={styles.or}>- OR -</span>
       <Link className={styles.link} href="/register">
         Create new account
       </Link>
+      {/* <button onClick={handellogout}>Logout</button> */}
     </div>
   );
 };

@@ -54,7 +54,6 @@ export default function page() {
   return (
     <main>
       <Landing />
-      
       <Section ID="spiritual" title="Cultural Events Near You" link="spiritual">
       <Link href='/events/form' className="create">create</Link>
         <div className="cardContainer">
